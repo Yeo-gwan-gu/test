@@ -1,8 +1,8 @@
 ## Spring Boot 실습
 
-### Spring Boot 기본 초기세팅
+### ⚙️ Spring Boot 기본 초기세팅
 
-[Dependencies]
+📌 [Dependencies]
 1. Spring Boot DevTools
 2. Lombok
 3. Spring WEB
