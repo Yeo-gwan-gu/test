@@ -60,6 +60,7 @@ public class BookRestController {
             service.getByDelete(id);
             return ResponseEntity.ok("Deleted book with id: " + id);
         } catch (Exception e) {
+            // 삭제 예외처리 미발동(리턴타입 확인 필요)
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Failed to delete book with id: " + id + ".Error" + e.getMessage());
