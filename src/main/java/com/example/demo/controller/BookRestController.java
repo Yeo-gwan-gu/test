@@ -28,7 +28,7 @@ public class BookRestController {
         try {
             return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
         } catch (RuntimeException e) {
-            return new ResponseEntity<>("Book not found with id" + id, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Book not found with id: " + id, HttpStatus.NOT_FOUND);
         }
     }
 
