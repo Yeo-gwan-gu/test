@@ -22,4 +22,5 @@ public class BookService {
     public Book register(Book book) {
         return repository.save(book);
     }
+
 }
