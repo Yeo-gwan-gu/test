@@ -15,4 +15,5 @@ public interface BookRepository extends JpaRepository<Book, Long> { // Table 정
     // @Query("select * from book")
     // C(Create) : 데이터 입력하기 -> save()
     // U(Update) : 특정 레코드 수정하기 -> save( PK값 )
+    // D(Delete) : 특정 레코드 삭제하기 -> deleteById( PK값 )
 }
