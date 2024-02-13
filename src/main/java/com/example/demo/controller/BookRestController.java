@@ -39,4 +39,17 @@ public class BookRestController {
         return service.register(book);
     }
 
+    @PutMapping("/books/{id}")
+    public ResponseEntity<Book> updateBook(
+            @PathVariable Long id,
+            @RequestBody Book requestBook
+    ) {
+        try {
+            Book updatedBook = service.update(id, requestBook);
+            return ResponseEntity.ok(updatedBook);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
