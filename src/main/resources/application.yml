@@ -14,7 +14,7 @@ spring:
       hibernate:
         format_sql: 'true'
     hibernate:
-      ddl-auto: create
+      ddl-auto: update # 첫 생성에는 create -> 이후 수정부터는 update
     show-sql: 'true'
 server:
   port: '8081'
