@@ -52,4 +52,18 @@ public class BookRestController {
         }
     }
 
+    @DeleteMapping("/books/{id}")
+    public ResponseEntity<?> deleteBook(
+            @PathVariable Long id
+    ) {
+        try {
+            service.getByDelete(id);
+            return ResponseEntity.ok("Deleted book with id: " + id);
+        } catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to delete book with id: " + id + ".Error" + e.getMessage());
+        }
+    }
+
 }
