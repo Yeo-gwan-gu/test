@@ -52,4 +52,9 @@ public class BookService {
         }
     }
 
+    // 특정 레코드 삭제하기
+    public void getByDelete(Long id) {
+        repository.deleteById(id);
+    }
+
 }
