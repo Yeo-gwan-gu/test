@@ -17,4 +17,9 @@ public class BookService {
     public List<Book> getList() {
         return repository.findAll();
     }
+
+    // 데이터 입력하기
+    public Book register(Book book) {
+        return repository.save(book);
+    }
 }
