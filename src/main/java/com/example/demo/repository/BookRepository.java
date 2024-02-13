@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // JPA
 // JpaRepository --> CRUD Method 제공
 public interface BookRepository extends JpaRepository<Book, Long> { // Table 정보, PK 타입 지정
+    // 전체 리스트 조회 -> findALl()
 
 }
