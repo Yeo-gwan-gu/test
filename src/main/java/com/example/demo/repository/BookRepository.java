@@ -14,4 +14,5 @@ public interface BookRepository extends JpaRepository<Book, Long> { // Table 정
     // 3. 사용자 정의 쿼리문 메서드 생성
     // @Query("select * from book")
     // C(Create) : 데이터 입력하기 -> save()
+    // U(Update) : 특정 레코드 수정하기 -> save( PK값 )
 }
