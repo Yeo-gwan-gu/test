@@ -67,4 +67,11 @@ public class BookRestController {
         }
     }
 
+    @GetMapping("/books/{title}/{name}")
+    public Book findTitleAndName(
+            @PathVariable String title, @PathVariable String name
+    ) {
+        return service.findTitleAndName(title, name);
+    }
+
 }

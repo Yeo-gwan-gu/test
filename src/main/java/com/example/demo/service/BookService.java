@@ -58,4 +58,8 @@ public class BookService {
         repository.deleteById(id);
     }
 
+    // 입력받은 이름과 타이틀이 DB 정보와 일치할 경우에만 출력하기
+    public Book findTitleAndName(String title, String name) {
+        return repository.findTitleAndName(title, name);
+    }
 }

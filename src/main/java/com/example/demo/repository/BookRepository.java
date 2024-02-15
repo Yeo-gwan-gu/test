@@ -29,8 +29,8 @@ public interface BookRepository extends JpaRepository<Book, Long> { // Table 정
     List<Book> findByPriceGreaterThan(@Param("price") int price); //@Param 생략 가능(이름이 같은 경우에만)
 
     // 3-4. 기본 SQL 쿼리 : nativeQuery = true -> 기본 Query 사용하겠다는 뜻
-    @Query(value = "SELECT * FROM book WHERE title = ?1 AND name = ?2", nativeQuery = true)
-    List<Book> findByTitleAndName(String lastName);
+    @Query(value = "SELECT * FROM book b WHERE b.title = ?1 AND b.name = ?2", nativeQuery = true)
+    Book findTitleAndName(String title, String name);
 
     // 3-5. Querydsl : 복잡함
 
