@@ -25,8 +25,8 @@ public class Member {
     @ManyToMany // 다대다 구조
     @JoinTable(
             name = "member_roles",
-            joinColumns = @JoinColumn(name = "member_id"), // FK
-            inverseJoinColumns = @JoinColumn(name = "role_id") // FK
+            joinColumns = @JoinColumn(name = "member_id"), // FK, member -> id(PK)
+            inverseJoinColumns = @JoinColumn(name = "role_id") // FK, role -> id(PK)
     )
     private Set<Role> roles; // Set : 중복 X --> USER, MANAGER, ADMIN ...
 }
