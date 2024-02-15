@@ -17,7 +17,8 @@ public class BookService {
 
     // 전체 리스트 조회
     public List<Book> getList() {
-        return repository.findAll();
+//        return repository.findAll();
+        return repository.bookList(); // JPQL 활용
     }
 
     // 특정 레코드 가져오기
