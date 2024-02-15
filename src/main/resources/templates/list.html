@@ -19,6 +19,7 @@
                 <thead>
                 <tr>
                     <th>Title</th>
+                    <th>Name</th>
                     <th>Price</th>
                     <th>Pages</th>
                 </tr>
@@ -26,6 +27,7 @@
                 <tbody>
                 <tr th:each="book : ${list}">
                     <td><a th:href="@{/detail/{id}(id=${book.id})}" th:text="${book.title}">Title</a></td>
+                    <td th:text="${book.name}">Name</td>
                     <td th:text="${book.price}">Price</td>
                     <td th:text="${book.page}">Pages</td>
                 </tr>
