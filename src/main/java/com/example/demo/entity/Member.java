@@ -3,6 +3,8 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Set;
+
 @Entity
 @Data
 public class Member {
@@ -20,4 +22,11 @@ public class Member {
 
     // 계정 권한 (admin, manager, user ...)
     // 회원 한명당 권한 '1개'? OR '여러개' -> 여러개로 선택
+    @ManyToMany // 다대다 구조
+    @JoinTable(
+            name = "member_roles",
+            joinColumns = @JoinColumn(name = "member_id"), // FK
+            inverseJoinColumns = @JoinColumn(name = "role_id") // FK
+    )
+    private Set<Role> roles; // Set : 중복 X --> USER, MANAGER, ADMIN ...
 }
