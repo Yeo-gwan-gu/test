@@ -22,9 +22,9 @@ public class Member {
 
     // 계정 권한 (admin, manager, user ...)
     // 회원 한명당 권한 '1개'? OR '여러개' -> 여러개로 선택
-    @ManyToMany // 다대다 구조
+    @ManyToMany(fetch = FetchType.EAGER) // M:N (다:다 관계 구조)
     @JoinTable(
-            name = "member_roles",
+            name = "member_roles", // 관계 테이블(JPA 로 자동 핸들링)
             joinColumns = @JoinColumn(name = "member_id"), // FK, member -> id(PK)
             inverseJoinColumns = @JoinColumn(name = "role_id") // FK, role -> id(PK)
     )
