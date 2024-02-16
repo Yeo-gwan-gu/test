@@ -21,6 +21,6 @@ public class BookController {
     public String bookList(Model model) {
         List<Book> list = service.getList();
         model.addAttribute("list", list);
-        return "list"; // list.html
+        return "books/list"; // list.html
     }
 }
