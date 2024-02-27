@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     url: jdbc:mysql://localhost:3306/books
-    password: '1130'
+    password: '12345'
   thymeleaf:
     prefix: classpath:/templates/
     cache: 'false'
@@ -18,3 +18,6 @@ spring:
     show-sql: 'true'
 server:
   port: '8081'
+google:
+  geocoding:
+    api-key: AIzaSyB5cS1pz0Huis5Vtjet9O3cK0A9GFmyRMk

@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,7 +10,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity // 웹 보안을 활성화
+@EnableMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class SercurityConfig {
 
     @Bean
@@ -28,7 +30,7 @@ public class SercurityConfig {
 //                        .anyRequest().authenticated() // 나머지 모든 요청은 인증 요구
                                 .requestMatchers("/api/**").authenticated() // "/api/**" 경로는 인증 후 접근
                                 .requestMatchers("/book/**").authenticated() // "/book/**" 경로는 인증 후 접근
-                        .anyRequest().permitAll() // 나머지 요청은 인증 없이 접근 허용
+                                .anyRequest().permitAll() // 나머지 요청은 인증 없이 접근 허용
                 )
                 .formLogin(form -> form
                         .loginPage("/ui/list") // 사용자 정의 로그인 페이지
@@ -42,6 +44,9 @@ public class SercurityConfig {
                         .clearAuthentication(true) // 로그아웃 시 인증번호 클리어(SecurityContext)
                         .deleteCookies("JSESSIONID") // 로그아웃 시 삭제할 쿠키 이름
                         .invalidateHttpSession(true) // 세션 무효화
+                ).oauth2Login(oauth2Login -> oauth2Login // 소셜 로그인
+                        .loginPage("/ui/list")
+                        .defaultSuccessUrl("/ui/list")
                 );
         return http.build();
     }
